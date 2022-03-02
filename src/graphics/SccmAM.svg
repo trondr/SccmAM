@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="256"
+   height="256"
+   viewBox="0 0 67.733332 67.733335"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04, custom)"
+   sodipodi:docname="SccmAM.svg"
+   inkscape:export-filename="C:\dev\github.trondr\SccmAM\src\graphics\SccmAM.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="px"
+     showgrid="false"
+     units="px"
+     inkscape:zoom="1.0998546"
+     inkscape:cx="-22.730277"
+     inkscape:cy="215.48303"
+     inkscape:window-width="2171"
+     inkscape:window-height="1233"
+     inkscape:window-x="366"
+     inkscape:window-y="128"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <rect
+       x="33.431285"
+       y="34.717104"
+       width="47.57529"
+       height="61.719295"
+       id="rect3411" />
+    <rect
+       x="33.431286"
+       y="34.717106"
+       width="47.575291"
+       height="61.719296"
+       id="rect3411-7" />
+    <rect
+       x="33.431286"
+       y="34.717106"
+       width="47.575291"
+       height="61.719296"
+       id="rect3411-7-7" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="path705"
+       style="fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 56.487294,30.15651 -1.2585,3.131099 -4.450001,-0.970515 -2.288291,2.347869 0.694793,4.431469 -2.999175,1.165823 -2.488479,-3.837603 -3.222886,0.0079 v 0 l -1.356713,-3.38799 C 50.077308,37.62741 54.776433,20.503225 43.61632,17.972518 l -0.864253,-2.163881 1.236023,0.103912 2.382973,-3.306493 2.930345,0.930499 -0.637071,4.211887 2.244362,2.32963 4.162789,-0.910462 1.193495,2.952936 -3.607086,2.635817 -0.02742,3.147122 z"
+       sodipodi:nodetypes="cccccccccccccccccccccc"
+       sodipodi:stroke-cmyk="(0 0 0 0.8)" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.98468703,0,0,0.98468703,-31.469472,-36.317521)"
+       id="text3409"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:30px;line-height:1.25;font-family:Arial;-inkscape-font-specification:Arial;white-space:pre;shape-inside:url(#rect3411)"><tspan
+         x="33.431641"
+         y="61.73943"
+         id="tspan14554">S</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(1.008325,0,0,1.008325,-12.765766,-20.309432)"
+       id="text3409-0"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:30px;line-height:1.25;font-family:Arial;-inkscape-font-specification:Arial;white-space:pre;shape-inside:url(#rect3411-7)"><tspan
+         x="33.431641"
+         y="61.73943"
+         id="tspan14556">A</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(1.0104627,0,0,1.0104627,7.3386642,2.2173342)"
+       id="text3409-0-7"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:30px;line-height:1.25;font-family:Arial;-inkscape-font-specification:Arial;white-space:pre;shape-inside:url(#rect3411-7-7)"><tspan
+         x="33.431641"
+         y="61.73943"
+         id="tspan14558">M</tspan></text>
+  </g>
+</svg>

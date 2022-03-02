@@ -24,6 +24,7 @@ class PackageDefinitionSms
     {
         $this.Name = $Name
         $this.Version = $Version
+        $this.Publisher = $Publisher
         $this.Comment = $Comment
         $this.Programs = $Programs
     }

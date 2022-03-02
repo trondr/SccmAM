@@ -45,6 +45,8 @@
 		,'Connect-SAMCmSite'
 		,'Get-SAMCmAssignedSite'
 		,'Get-SAMCmCurrentManagementPoint'
+		,'Import-SAMPackageDefinitionSms'
+		,'Assert-SAMStringIsNotNullOrWhiteSpace'
 	)
 	
 	# Cmdlets to export from this module

@@ -32,16 +32,16 @@
 		foreach($p in $Path)
 		{
 			try {
-				Assert-SAMFileExists -Path $p -Message "PackageDefinition.sms file not found."				
+				Assert-SAMFileExists -Path $p -Message "PackageDefinition.sms file not found."
 				$Name = Get-SAMIniFileValue -Path $p -Section "Package Definition" -Key "Name"
 				$Version = Get-SAMIniFileValue -Path $p -Section "Package Definition" -Key "Version"
 				$Publisher = Get-SAMIniFileValue -Path $p -Section "Package Definition" -Key "Publisher"
 				$Comment = Get-SAMIniFileValue -Path $p -Section "Package Definition" -Key "Comment"
 				$Programs = Get-SAMIniFileValue -Path $p -Section "Package Definition" -Key "Programs" | Split-String -Separator ","
 				$ProgramSmsArray = $Programs | ForEach-Object{
-					$programName = Get-SAMIniFileValue -Path $p -Section $_ -Key "Name"
-					$commandLine = Get-SAMIniFileValue -Path $p -Section $programName -Key "CommandLine"
-					$programComment = Get-SAMIniFileValue -Path $p -Section $programName -Key "Comment"					
+					$programName = Get-SAMIniFileValue -Path $p -Section $_ -Key "Name";
+					$commandLine = Get-SAMIniFileValue -Path $p -Section $programName -Key "CommandLine";
+					$programComment = Get-SAMIniFileValue -Path $p -Section $programName -Key "Comment"
 					Write-Output -InputObject $([ProgramSms]::New($programName,$CommandLine,$programComment))
 				}				
 				Write-Output -InputObject $([PackageDefinitionSms]::New($Name,$Version,$Publisher,$Comment,$ProgramSmsArray))
@@ -56,4 +56,5 @@
 	
 	}
 }
-Import-SAMPackageDefinitionSms -Path "c:\temp\PackageDefinition.sms"
+#TEST:
+#Import-SAMPackageDefinitionSms -Path "c:\temp\PackageDefinition.sms"

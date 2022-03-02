@@ -26,7 +26,9 @@
 		$Section,
         [Parameter(Mandatory=$true)]
         [string]
-		$Key
+		$Key,
+		[switch]
+		$AllowEmptyOrNull
 	)
 	
 	begin
@@ -35,7 +37,12 @@
 	}
 	process
 	{
-		[SccmAM.IniFile]::Read($Path,$Section,$Key)
+		$value = [SccmAM.IniFile]::Read($Path,$Section,$Key)
+		if($AllowEmptyOrNull -eq $false)
+		{
+			Assert-SAMStringIsNotNullOrWhiteSpace $value -Message "$Path[$Section]$Key"
+		}		
+		Write-Output -InputObject $value
 	}
 	end
 	{

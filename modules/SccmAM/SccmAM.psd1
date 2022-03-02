@@ -47,6 +47,7 @@
 		,'Get-SAMCmCurrentManagementPoint'
 		,'Import-SAMPackageDefinitionSms'
 		,'Assert-SAMStringIsNotNullOrWhiteSpace'
+		,'New-SAMCmApplicationFromPackageDefinitionSms'
 		,'Test-SAMCmApplicationExists'
 	)
 	

@@ -20,6 +20,7 @@
 	Param (
 		[Parameter(Mandatory=$true,ValueFromPipeline=$true,ValueFromPipelineByPropertyName=$true,ValueFromRemainingArguments=$true)]
 		[Alias("FullName")]
+		[string[]]
 		$Path
 	)
 	

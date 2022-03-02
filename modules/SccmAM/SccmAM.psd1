@@ -47,6 +47,7 @@
 		,'Get-SAMCmCurrentManagementPoint'
 		,'Import-SAMPackageDefinitionSms'
 		,'Assert-SAMStringIsNotNullOrWhiteSpace'
+		,'Test-SAMCmApplicationExists'
 	)
 	
 	# Cmdlets to export from this module

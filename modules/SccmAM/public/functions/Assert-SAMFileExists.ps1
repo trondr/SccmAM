@@ -31,7 +31,7 @@
     }
     
     process {
-        if(Test-Path -Path $Path)
+        if(Test-Path -Path filesystem::$Path -PathType Leaf)
         {
             Write-Verbose "File exists: $Path"
         }
@@ -44,3 +44,6 @@
         
     }
 }
+#TEST:
+#$Path = "\\someserver\PkgSrc$\Applications\App1\PackageDefinition.sms"
+#Assert-SAMFileExists -Path $Path -Message "Important file not found."

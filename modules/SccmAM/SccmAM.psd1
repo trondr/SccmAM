@@ -46,7 +46,7 @@
 		,'New-SAMCmApplicationFromPackageDefinitionSms'		
 		,'New-SAMCmPackageFromPackageDefinitionSms'	
 		,'Test-SAMCmApplicationExists'
-		,'Test-SAMCmPackageExists'	
+		,'Test-SAMCmPackageExists'
 	)
 	
 	# Cmdlets to export from this module
@@ -76,8 +76,11 @@
 				,'Connect-SAMCmSite'
 				,'Get-SAMCmAssignedSite'
 				,'Get-SAMCmCurrentManagementPoint'
-				,'New-SAMCmApplicationFromPackageDefinitionSms'
-				,'New-SAMCmPackageFromPackageDefinitionSms'				
+				,'Import-SAMPackageDefinitionSms'		
+				,'New-SAMCmApplicationFromPackageDefinitionSms'		
+				,'New-SAMCmPackageFromPackageDefinitionSms'	
+				,'Test-SAMCmApplicationExists'
+				,'Test-SAMCmPackageExists'
 			)
 			
 			# A URL to the license for this module.

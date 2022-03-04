@@ -67,6 +67,9 @@
 					Assert-SAMIsNotNull -InputObject $installProgram -Message "INSTALL program must be defined in PackageDefinition.sms."
 					[ProgramSms]$uninstallProgram = $packageDefinitionSms.Programs | Where-Object{$_.Name -eq "UNINSTALL"} | Select-Object -First 1
 					Assert-SAMIsNotNull -InputObject $uninstallProgram -Message "UNINSTALL program must be defined in PackageDefinition.sms."
+
+					[ProgramSms]$repairProgram = $packageDefinitionSms.Programs | Where-Object{$_.Name -eq "REPAIR"} | Select-Object -First 1
+
 					$app = New-CmApplication -Name $appName -Publisher $($packageDefinitionSms.Publisher) -AutoInstall $true -SoftwareVersion $($packageDefinitionSms.Vesion)
 					Assert-SAMIsNotNull -InputObject $app -Message "Application '$appName' was not created."
 					$parameters = @{
@@ -86,8 +89,13 @@
 						SlowNetworkDeploymentMode = "Download"
 						ScriptLanguage = "PowerShell"
                     	ScriptFile = $detectionMethodsPs1
-					}			
-					Write-Host "ScriptFile: $($parameters.ScriptFile)" -ForegroundColor Green
+					}
+					if($null -ne $repairProgram -and ([string]::IsNullOrWhiteSpace($repairProgram.CommandLine) -eq $false))
+					{
+						$parameters += @{
+							RepairCommand = $($repairProgram.CommandLine)
+						}
+					}					
 					$deploymentType = Add-CMScriptDeploymentType @parameters
 					Assert-SAMIsNotNull -InputObject $deploymentType -Message "DeploymentType for '$appName' was not created."
 				}
@@ -110,5 +118,5 @@
 # $allPackageDefinitionSms | New-SAMCmApplicationFromPackageDefinitionSms
 
 # $applicationsPath = "Z:\Applications"
-# $allPackageDefinitionSms = Get-ChildItem -Path filesystem::$applicationsPath -Filter "PackageDefinition.sms" -Recurse -Depth 4 | Select-Object -First 1
+# $allPackageDefinitionSms = Get-ChildItem -Path filesystem::$applicationsPath -Filter "PackageDefinition.sms" -Recurse -Depth 4
 # $allPackageDefinitionSms | New-SAMCmApplicationFromPackageDefinitionSms -Verbose

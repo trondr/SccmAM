@@ -11,6 +11,7 @@
 		New-SAMCmPackageFromPackageDefinitionSms -Path c:\temp\Package01\PackageDefinition.sms
 
 		.EXAMPLE
+		Write-Host "Create packages for all PackageDefinition.sms found in a directory tree."
 		$applicationsPath = "Z:\Applications"
 		$allPackageDefinitionSms = Get-ChildItem -Path filesystem::$applicationsPath -Filter "PackageDefinition.sms" -Recurse -Depth 4
 		$allPackageDefinitionSms | New-SAMCmPackageFromPackageDefinitionSms -Verbose

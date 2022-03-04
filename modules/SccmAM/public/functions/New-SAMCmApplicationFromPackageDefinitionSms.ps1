@@ -19,8 +19,9 @@
 		New-SAMCmApplicationFromPackageDefinitionSms -Path c:\temp\Package01\PackageDefinition.sms
 
 		.EXAMPLE
-		$allPackageDefinitionSms = Get-ChildItem -Path "\\sccmserver01\pkgsrc\applications" -Filter "PackageDefinition.sms" -Recurse -Depth 4
-		$allPackageDefinitionSms | New-SAMCmApplicationFromPackageDefinitionSms
+		$applicationsPath = "Z:\Applications"
+		$allPackageDefinitionSms = Get-ChildItem -Path filesystem::$applicationsPath -Filter "PackageDefinition.sms" -Recurse -Depth 4
+		$allPackageDefinitionSms | New-SAMCmApplicationFromPackageDefinitionSms -Verbose
 
 		.NOTES        
 		Version:        1.0
@@ -38,21 +39,19 @@
 	
 	begin
 	{
-		Connect-SAMCmSite		
+		Connect-SAMCmSite	
 	}
 	process
 	{
 		foreach($p in $Path)
 		{
 			try {				
-				Write-Verbose "Asserting that PackageDefinition.sms ($p) exists."
-				Assert-SAMFileExists -Path $p -Message "Failed to create application. PackageDefinition.sms is required."
-				Write-Verbose "Importing PackageDefinition.sms ($p)."
-				[PackageDefinitionSms]$packageDefinitionSms = Import-SAMPackageDefinitionSms -Path $p				
+				[PackageDefinitionSms]$packageDefinitionSms = Import-SAMPackageDefinitionSms -Path $p	
+				Assert-SAMIsNotNull -InputObject $packageDefinitionSms -Message "PackageDefinition is not defined."
 				$appName = $($packageDefinitionSms.Name)
 
 				$sourcePath = $([System.IO.FileInfo]$p).Directory.FullName
-				$sourceUncPath = [SccmAM.PathOperation]::GetUncPath($([System.IO.FileInfo]$p).Directory.FullName,$false)
+				$sourceUncPath = [SccmAM.PathOperation]::GetUncPath($sourcePath,$false)
 
 				$detectionMethodsPs1 = [System.IO.Path]::Combine($sourcePath,"DetectionMethod.ps1")
 				Write-Verbose "Asserting that DetectionMethod.ps1 ($detectionMethodsPs1) exists."

@@ -34,10 +34,12 @@
 		{
 			try {
 				Assert-SAMFileExists -Path $p -Message "PackageDefinition.sms file not found."
+				Write-Verbose "Importing PackageDefinition.sms: $p"
 				$Name = Get-SAMIniFileValue -Path $p -Section "Package Definition" -Key "Name"
 				$Version = Get-SAMIniFileValue -Path $p -Section "Package Definition" -Key "Version"
 				$Publisher = Get-SAMIniFileValue -Path $p -Section "Package Definition" -Key "Publisher"
 				$Comment = Get-SAMIniFileValue -Path $p -Section "Package Definition" -Key "Comment"
+				$Language = Get-SAMIniFileValue -Path $p -Section "Package Definition" -Key "Language" -AllowEmptyOrNull
 				$Programs = $(Get-SAMIniFileValue -Path $p -Section "Package Definition" -Key "Programs")  -Split ","
 				$ProgramSmsArray = $Programs | ForEach-Object{
 					$programName = Get-SAMIniFileValue -Path $p -Section $_ -Key "Name";
@@ -45,7 +47,7 @@
 					$programComment = Get-SAMIniFileValue -Path $p -Section $programName -Key "Comment"
 					Write-Output -InputObject $([ProgramSms]::New($programName,$CommandLine,$programComment))
 				}				
-				Write-Output -InputObject $([PackageDefinitionSms]::New($Name,$Version,$Publisher,$Comment,$ProgramSmsArray))
+				Write-Output -InputObject $([PackageDefinitionSms]::New($Name,$Version,$Publisher,$Comment,$Language,$ProgramSmsArray))
 			}
 			catch {
 				Write-Host "Import-SAMPackageDefinitionSms failed processing '$($p)' due to: $($_.Exception.Message) (Line: $($_.InvocationInfo.ScriptLineNumber))(Script: $($_.InvocationInfo.ScriptName))" -ForegroundColor Red

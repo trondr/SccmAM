@@ -24,8 +24,10 @@ $allPackageDefinitionSmsFIles | New-SAMCmPackageFromPackageDefinitionSms
 
 ## Setup local repository
 ```powershell
-New-Item -Path C:\ -Name "PSModuleRepository" -ItemType Directory
-Register-PSRepository -Name 'LocalPSModuleRepository' -SourceLocation 'C:\PSModuleRepository' -PublishLocation 'C:\PSModuleRepository' -InstallationPolicy Trusted
+$RepositoryName = "LocalPSModuleRepository"
+$RepositorySourceLocation = "C:\$RepositoryName"
+New-Item -Path C:\ -Name $RepositoryName -ItemType Directory -Force -ErrorAction SilentlyContinue
+Register-PSRepository -Name $RepositoryName -SourceLocation $RepositorySourceLocation -PublishLocation $RepositorySourceLocation -InstallationPolicy Trusted
 ```
 
 ## Publish Module to local repository

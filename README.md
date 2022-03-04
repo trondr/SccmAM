@@ -42,7 +42,7 @@ Publish-Module -Path ".\modules\SccmAM" -Repository LocalPSModuleRepository
 ## Install Module from local repository
 ```powershell
 Install-Module -Name SccmAM -Repository LocalPSModuleRepository
-Import-Module v
+Import-Module SccmAM
 ```
 
 ## Publish Module to PowerShell Gallery

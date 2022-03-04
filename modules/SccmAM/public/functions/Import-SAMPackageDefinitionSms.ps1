@@ -48,7 +48,7 @@
 				Write-Output -InputObject $([PackageDefinitionSms]::New($Name,$Version,$Publisher,$Comment,$ProgramSmsArray))
 			}
 			catch {
-				Write-Host "Import-SAMPackageDefinitionSms failed processing '$($p)' due to: $($_.Exception.Message). (Line: $($_.InvocationInfo.ScriptLineNumber))(Script: $($_.InvocationInfo.ScriptName))"
+				Write-Host "Import-SAMPackageDefinitionSms failed processing '$($p)' due to: $($_.Exception.Message) (Line: $($_.InvocationInfo.ScriptLineNumber))(Script: $($_.InvocationInfo.ScriptName))" -ForegroundColor Red
 			}
 		}
 	}

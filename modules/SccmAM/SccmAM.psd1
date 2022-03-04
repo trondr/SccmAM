@@ -3,7 +3,7 @@
 	RootModule = 'SccmAM.psm1'
 	
 	# Version number of this module.
-	ModuleVersion = '1.0.22061'
+	ModuleVersion = '1.0.22063'
 	
 	# ID used to uniquely identify this module
 	GUID = 'ac26a7ab-84ec-483d-8ef3-770d154b8db1'

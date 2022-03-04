@@ -38,21 +38,15 @@
 	FormatsToProcess = @('SccmAM.Format.ps1xml')
 	
 	# Functions to export from this module
-	FunctionsToExport = @(
-		'Assert-SAMFileExists'
-		,'Assert-SAMCmManagerConsoleIsInstalled'
-		,'Assert-SAMCmClientIsInstalled'
+	FunctionsToExport = @(		
 		,'Connect-SAMCmSite'
 		,'Get-SAMCmAssignedSite'
 		,'Get-SAMCmCurrentManagementPoint'
-		,'Import-SAMPackageDefinitionSms'
-		,'Assert-SAMStringIsNotNullOrWhiteSpace'
-		,'New-SAMCmApplicationFromPackageDefinitionSms'
+		,'Import-SAMPackageDefinitionSms'		
+		,'New-SAMCmApplicationFromPackageDefinitionSms'		
+		,'New-SAMCmPackageFromPackageDefinitionSms'	
 		,'Test-SAMCmApplicationExists'
-		,'Assert-SAMIsNotNull'
-		,'Assert-SAMFileIsNotEmpty'
-		,'New-SAMCmPackageFromPackageDefinitionSms'
-		,'Test-SAMCmPackageExists'
+		,'Test-SAMCmPackageExists'	
 	)
 	
 	# Cmdlets to export from this module

@@ -6,6 +6,22 @@ PowerShell cmdlets creating Sccm Applications from custom PackageDefinition.sms 
 Import-Module -Path ".\modules\SccmAM"
 ```
 
+## Example creating Sccm Applications:
+```
+Write-Host "Create applications"
+$applicationsPath = "Z:\Applications"
+$allPackageDefinitionSmsFiles = Get-ChildItem -Path filesystem::$applicationsPath -Filter "PackageDefinition.sms" -Recurse -Depth 4
+$allPackageDefinitionSmsFIles | New-SAMCmApplicationFromPackageDefinitionSms
+```
+
+## Example creating Sccm Packages:
+```
+Write-Host "Create applications"
+$applicationsPath = "Z:\Applications"
+$allPackageDefinitionSmsFiles = Get-ChildItem -Path filesystem::$applicationsPath -Filter "PackageDefinition.sms" -Recurse -Depth 4
+$allPackageDefinitionSmsFIles | New-SAMCmPackageFromPackageDefinitionSms
+```
+
 ## Setup local repository
 ```powershell
 New-Item -Path C:\ -Name "PSModuleRepository" -ItemType Directory

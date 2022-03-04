@@ -11,7 +11,7 @@ Import-Module -Path ".\modules\SccmAM"
 Write-Host "Create applications"
 $applicationsPath = "Z:\Applications"
 $allPackageDefinitionSmsFiles = Get-ChildItem -Path filesystem::$applicationsPath -Filter "PackageDefinition.sms" -Recurse -Depth 4
-$allPackageDefinitionSmsFIles | New-SAMCmApplicationFromPackageDefinitionSms
+$allPackageDefinitionSmsFiles | New-SAMCmApplicationFromPackageDefinitionSms
 ```
 
 ## Example creating Sccm Packages:
@@ -19,7 +19,7 @@ $allPackageDefinitionSmsFIles | New-SAMCmApplicationFromPackageDefinitionSms
 Write-Host "Create applications"
 $applicationsPath = "Z:\Applications"
 $allPackageDefinitionSmsFiles = Get-ChildItem -Path filesystem::$applicationsPath -Filter "PackageDefinition.sms" -Recurse -Depth 4
-$allPackageDefinitionSmsFIles | New-SAMCmPackageFromPackageDefinitionSms
+$allPackageDefinitionSmsFiles | New-SAMCmPackageFromPackageDefinitionSms
 ```
 
 ## Setup local repository

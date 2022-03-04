@@ -3,7 +3,7 @@
 	RootModule = 'SccmAM.psm1'
 	
 	# Version number of this module.
-	ModuleVersion = '1.0.22063'
+	ModuleVersion = '1.0.22064'
 	
 	# ID used to uniquely identify this module
 	GUID = 'ac26a7ab-84ec-483d-8ef3-770d154b8db1'
@@ -18,7 +18,7 @@
 	Copyright = 'Copyright (c) 2022 github/trondr'
 	
 	# Description of the functionality provided by this module
-	Description = 'PowerShell cmdlets creating Sccm Applications from custom PackageDefinition.sms and DetectionMethod.ps1'
+	Description = 'PowerShell cmdlets creating Sccm Applications from custom PackageDefinition.sms using InstallDetection.ps1 script as detection method.'
 	
 	# Minimum version of the Windows PowerShell engine required by this module
 	PowerShellVersion = '5.1'

@@ -2,14 +2,14 @@
 {
 	<#
 		.SYNOPSIS
-		Create new Sccm Application from PackageDefinition.sms and DetectionMethod.ps1
+		PowerShell cmdlets creating Sccm Applications from custom PackageDefinition.sms using InstallDetection.ps1 script as detection method.
 		
 		.DESCRIPTION
-		Create new Sccm Application from PackageDefinition.sms and DetectionMethod.ps1
+		PowerShell cmdlets creating Sccm Applications from custom PackageDefinition.sms using InstallDetection.ps1 script as detection method.
 
 		PackageDefinition.sms should have a INSTALL program and a UNINSTALL program and optionally a REPAIR program.
 		
-		There should exist a DetectionMethod.ps1 file in the same folder as the PackageDefintion.sms and this PowerShell script
+		There should exist a InstallDetection.ps1 file in the same folder as the PackageDefintion.sms and this PowerShell script
 		should contain the logic detecting if the application is installed, following the rules stated by:
 		https://docs.microsoft.com/en-us/previous-versions/system-center/system-center-2012-R2/gg682159(v=technet.10)#to-use-a-custom-script-to-determine-the-presence-of-a-deployment-type
 
@@ -54,10 +54,10 @@
 				$sourcePath = $([System.IO.FileInfo]$p).Directory.FullName
 				$sourceUncPath = [SccmAM.PathOperation]::GetUncPath($sourcePath,$false)
 
-				$detectionMethodsPs1 = [System.IO.Path]::Combine($sourcePath,"DetectionMethod.ps1")
-				Write-Verbose "Asserting that DetectionMethod.ps1 ($detectionMethodsPs1) exists."
-				Assert-SAMFileExists -Path $detectionMethodsPs1 -Message "Failed to create application '$appName'. DetectionMethod.ps1 is missing."
-				Assert-SAMFileIsNotEmpty -Path $detectionMethodsPs1 -Message "Failed to create application '$appName'. DetectionMethod.ps1 is empty."
+				$InstallDetectionsPs1 = [System.IO.Path]::Combine($sourcePath,"InstallDetection.ps1")
+				Write-Verbose "Asserting that InstallDetection.ps1 ($InstallDetectionsPs1) exists."
+				Assert-SAMFileExists -Path $InstallDetectionsPs1 -Message "Failed to create application '$appName'. InstallDetection.ps1 is missing."
+				Assert-SAMFileIsNotEmpty -Path $InstallDetectionsPs1 -Message "Failed to create application '$appName'. InstallDetection.ps1 is empty."
 
 				
 				if((Test-SAMCmApplicationExists -Name $appName) -eq $false)
@@ -88,7 +88,7 @@
 						ContentFallback = $true						
 						SlowNetworkDeploymentMode = "Download"
 						ScriptLanguage = "PowerShell"
-                    	ScriptFile = $detectionMethodsPs1
+                    	ScriptFile = $InstallDetectionsPs1
 					}
 					if($null -ne $repairProgram -and ([string]::IsNullOrWhiteSpace($repairProgram.CommandLine) -eq $false))
 					{

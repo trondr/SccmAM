@@ -8,7 +8,7 @@
 		Assert that file has size greater than zero
 
 		.EXAMPLE
-		Assert-SAMFileIsNotEmpty -Path "c:\temp\DetectionMethod.ps1" -Message "Important file cannot be of zero length."
+		Assert-SAMFileIsNotEmpty -Path "c:\temp\InstallDetection.ps1" -Message "Important file cannot be of zero length."
 
 		.NOTES        
 		Version:        1.0
@@ -48,6 +48,6 @@
 	}
 }
 #TEST:
-# Assert-SAMFileIsNotEmpty -Path "c:\temp\DetectionMethod.ps1" -Message "Important file cannot be of zero length."
-# Assert-SAMFileIsNotEmpty -Path "Z:\Applications\App1\DetectionMethod.ps1" -Message "Important file cannot be of zero length."
-# Assert-SAMFileIsNotEmpty -Path "c:\temp\Packages\App1\DetectionMethod.ps1" -Message "Important file cannot be of zero length."
+# Assert-SAMFileIsNotEmpty -Path "c:\temp\InstallDetection.ps1" -Message "Important file cannot be of zero length."
+# Assert-SAMFileIsNotEmpty -Path "Z:\Applications\App1\InstallDetection.ps1" -Message "Important file cannot be of zero length."
+# Assert-SAMFileIsNotEmpty -Path "c:\temp\Packages\App1\InstallDetection.ps1" -Message "Important file cannot be of zero length."

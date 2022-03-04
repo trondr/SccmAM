@@ -1,5 +1,5 @@
 ﻿# SccmAM
-PowerShell cmdlets creating Sccm Applications from custom PackageDefinition.sms and DetectionMethod.ps1
+PowerShell cmdlets creating Sccm Applications from custom PackageDefinition.sms using InstallDetection.ps1 script as detection method.
 
 ## Import module for development and testing
 ```powershell

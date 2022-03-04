@@ -48,7 +48,7 @@
 
 				if((Test-SAMCmPackageExists -Name $appName) -eq $false)
 				{
-					Write-Verbose "Package '$appName' does not allready exists, create it..."					
+					Write-Host "Creating package '$appName'..." -ForegroundColor Green -NoNewline
 					$parameters = @{
 						Name = $appName
 						Description = $($packageDefinitionSms.Comment)
@@ -80,6 +80,7 @@
 						$program = New-CMProgram @programParameters
 						Assert-SAMIsNotNull -InputObject $program -Message "Program '$($appName)->$($smsProgram.Name)' was not created."
 					}
+					Write-Host "Done!" -ForegroundColor Green
 				}
 				else {
 					Write-Warning "Package '$appName' allready exists."

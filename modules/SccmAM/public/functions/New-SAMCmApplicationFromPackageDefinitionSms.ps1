@@ -62,7 +62,7 @@
 				
 				if((Test-SAMCmApplicationExists -Name $appName) -eq $false)
 				{
-					Write-Verbose "Application '$appName' does not allready exists, create it..."
+					Write-Host "Creating application '$appName'..." -ForegroundColor Green -NoNewline
 					[ProgramSms]$installProgram = $packageDefinitionSms.Programs | Where-Object{$_.Name -eq "INSTALL"} | Select-Object -First 1
 					Assert-SAMIsNotNull -InputObject $installProgram -Message "INSTALL program must be defined in PackageDefinition.sms."
 					[ProgramSms]$uninstallProgram = $packageDefinitionSms.Programs | Where-Object{$_.Name -eq "UNINSTALL"} | Select-Object -First 1
@@ -71,7 +71,7 @@
 					[ProgramSms]$repairProgram = $packageDefinitionSms.Programs | Where-Object{$_.Name -eq "REPAIR"} | Select-Object -First 1
 
 					$app = New-CmApplication -Name $appName -Publisher $($packageDefinitionSms.Publisher) -AutoInstall $true -SoftwareVersion $($packageDefinitionSms.Vesion)
-					Assert-SAMIsNotNull -InputObject $app -Message "Application '$appName' was not created."
+					Assert-SAMIsNotNull -InputObject $app -Message "Application '$appName' was not created."					
 					$parameters = @{
 						ApplicationName = "$appName" 
 						DeploymentTypeName = "Custom-Script-Installer"
@@ -98,6 +98,7 @@
 					}					
 					$deploymentType = Add-CMScriptDeploymentType @parameters
 					Assert-SAMIsNotNull -InputObject $deploymentType -Message "DeploymentType for '$appName' was not created."
+					Write-Host "Done!" -ForegroundColor Green
 				}
 				else {
 					Write-Warning "Application '$appName' allready exists."

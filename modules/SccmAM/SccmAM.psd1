@@ -49,6 +49,8 @@
 		,'Assert-SAMStringIsNotNullOrWhiteSpace'
 		,'New-SAMCmApplicationFromPackageDefinitionSms'
 		,'Test-SAMCmApplicationExists'
+		,'Assert-SAMIsNotNull'
+		,'Assert-SAMFileIsNotEmpty'
 	)
 	
 	# Cmdlets to export from this module

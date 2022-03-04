@@ -38,7 +38,7 @@
 				$Version = Get-SAMIniFileValue -Path $p -Section "Package Definition" -Key "Version"
 				$Publisher = Get-SAMIniFileValue -Path $p -Section "Package Definition" -Key "Publisher"
 				$Comment = Get-SAMIniFileValue -Path $p -Section "Package Definition" -Key "Comment"
-				$Programs = Get-SAMIniFileValue -Path $p -Section "Package Definition" -Key "Programs" | Split-String -Separator ","
+				$Programs = $(Get-SAMIniFileValue -Path $p -Section "Package Definition" -Key "Programs")  -Split ","
 				$ProgramSmsArray = $Programs | ForEach-Object{
 					$programName = Get-SAMIniFileValue -Path $p -Section $_ -Key "Name";
 					$commandLine = Get-SAMIniFileValue -Path $p -Section $programName -Key "CommandLine";

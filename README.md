@@ -27,7 +27,7 @@ $allPackageDefinitionSmsFIles | New-SAMCmPackageFromPackageDefinitionSms
 $RepositoryName = "LocalPSModuleRepository"
 $RepositorySourceLocation = "C:\$RepositoryName"
 New-Item -Path C:\ -Name $RepositoryName -ItemType Directory -Force -ErrorAction SilentlyContinue
-Register-PSRepository -Name $RepositoryName -SourceLocation $RepositorySourceLocation -PublishLocation $RepositorySourceLocation -InstallationPolicy Trusted
+Register-PSRepository -Name $RepositoryName -SourceLocation $RepositorySourceLocation -PublishLocation $RepositorySourceLocation -InstallationPolicy Trusted -ErrorAction SilentlyContinue
 ```
 
 ## Publish Module to local repository

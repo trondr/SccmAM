@@ -51,6 +51,8 @@
 		,'Test-SAMCmApplicationExists'
 		,'Assert-SAMIsNotNull'
 		,'Assert-SAMFileIsNotEmpty'
+		,'New-SAMCmPackageFromPackageDefinitionSms'
+		,'Test-SAMCmPackageExists'
 	)
 	
 	# Cmdlets to export from this module
@@ -74,10 +76,14 @@
 			# Tags applied to this module. These help with module discovery in online galleries.
 			Tags = @(
 				,'Sccm'
+				,'SccmApplication'
+				,'SccmPackage'
 				,'SccmAM'
 				,'Connect-SAMCmSite'
 				,'Get-SAMCmAssignedSite'
 				,'Get-SAMCmCurrentManagementPoint'
+				,'New-SAMCmApplicationFromPackageDefinitionSms'
+				,'New-SAMCmPackageFromPackageDefinitionSms'				
 			)
 			
 			# A URL to the license for this module.

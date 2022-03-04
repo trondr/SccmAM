@@ -29,6 +29,10 @@ $RepositorySourceLocation = "C:\$RepositoryName"
 New-Item -Path C:\ -Name $RepositoryName -ItemType Directory -Force -ErrorAction SilentlyContinue
 Register-PSRepository -Name $RepositoryName -SourceLocation $RepositorySourceLocation -PublishLocation $RepositorySourceLocation -InstallationPolicy Trusted -ErrorAction SilentlyContinue
 ```
+## Update Nuget.exe
+```
+Invoke-WebRequest -Uri https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -OutFile "$env:LOCALAPPDATA\Microsoft\Windows\PowerShell\PowerShellGet\NuGet.exe"
+```
 
 ## Publish Module to local repository
 ```powershell

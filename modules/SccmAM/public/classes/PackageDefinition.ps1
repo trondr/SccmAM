@@ -11,8 +11,12 @@ class ProgramSms
     [string]$StartIn
     [ValidateSet("Minimized","Maximized","Hidden","Normal")]
     [string]$Run
+    [ValidateSet("SMSRestart","ProgramRestart","SMSLogoff","NoAction")] #The "NoAction" value is for internal use only and is not a valid value in PackageDefition.sms
+    [string]
+    $AfterRunning
 
-    ProgramSms([string]$Name,[string]$CommandLine,[string]$Comment,[string]$Icon,[string]$StartIn,[string]$Run)
+
+    ProgramSms([string]$Name,[string]$CommandLine,[string]$Comment,[string]$Icon,[string]$StartIn,[string]$Run,[string]$AfterRunning)
     {
         try {
             $this.Name = $Name
@@ -21,6 +25,7 @@ class ProgramSms
             $this.Icon = $Icon
             $this.StartIn = $StartIn
             $this.Run = $Run
+            $this.AfterRunning = $AfterRunning
         }
         catch {
             Write-Error "Failed to construct ProgramSms object due to: $($_.Exception.Message) (Line: $($_.InvocationInfo.ScriptLineNumber))(Script: $($_.InvocationInfo.ScriptName))" -ErrorAction Stop

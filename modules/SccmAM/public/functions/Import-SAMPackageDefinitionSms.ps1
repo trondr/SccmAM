@@ -49,7 +49,8 @@
 					$programIcon = Get-SAMIniFileValue -Path $p -Section $programName -Key "Icon" -AllowEmptyOrNull
 					$programStartIn = Get-SAMIniFileValue -Path $p -Section $programName -Key "StartIn" -AllowEmptyOrNull
 					$programRun = Get-SAMIniFileValue -Path $p -Section $programName -Key "Run" -DefaultValue "Normal" -AllowEmptyOrNull
-					Write-Output -InputObject $([ProgramSms]::New($programName,$CommandLine,$programComment,$programIcon,$programStartIn,$programRun))
+					$programAfterRunning = Get-SAMIniFileValue -Path $p -Section $programName -Key "AfterRunning" -DefaultValue "NoAction" -AllowEmptyOrNull
+					Write-Output -InputObject $([ProgramSms]::New($programName,$CommandLine,$programComment,$programIcon,$programStartIn,$programRun,$programAfterRunning))
 				}				
 				Write-Output -InputObject $([PackageDefinitionSms]::New($Name,$Version,$Publisher,$Comment,$Language,$ProgramSmsArray,$Icon))
 			}

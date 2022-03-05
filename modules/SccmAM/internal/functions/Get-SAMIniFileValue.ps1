@@ -28,7 +28,10 @@
         [string]
 		$Key,
 		[switch]
-		$AllowEmptyOrNull
+		$AllowEmptyOrNull,
+		[Parameter(Mandatory=$false)]
+		[string]
+		$DefaultValue = [string]::Empty
 	)
 	
 	begin
@@ -41,7 +44,11 @@
 		if($AllowEmptyOrNull -eq $false)
 		{
 			Assert-SAMStringIsNotNullOrWhiteSpace $value -Message "$Path[$Section]$Key"
-		}		
+		}
+		if([string]::IsNullOrWhiteSpace($value))
+		{
+			$value = $DefaultValue
+		}
 		Write-Output -InputObject $value
 	}
 	end

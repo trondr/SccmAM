@@ -9,7 +9,7 @@ class ProgramSms
     [string]$Icon
     [ValidateLength(1,127)]
     [string]$StartIn
-    [ValidateSet("Minimized","Maximized","Hidden","Normal")]
+    [ValidateSet("Minimized","Maximized","Hidden","Normal")] # The "Normal" value is for internal use only and is not a valid value in PackageDefition.sms
     [string]$Run
     [ValidateSet("SMSRestart","ProgramRestart","SMSLogoff","NoAction")] #The "NoAction" value is for internal use only and is not a valid value in PackageDefition.sms
     [string]

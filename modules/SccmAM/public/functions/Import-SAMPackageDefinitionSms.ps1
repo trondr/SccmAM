@@ -47,7 +47,8 @@
 					$commandLine = Get-SAMIniFileValue -Path $p -Section $programName -Key "CommandLine";
 					$programComment = Get-SAMIniFileValue -Path $p -Section $programName -Key "Comment"
 					$programIcon = Get-SAMIniFileValue -Path $p -Section $programName -Key "Icon" -AllowEmptyOrNull
-					Write-Output -InputObject $([ProgramSms]::New($programName,$CommandLine,$programComment,$programIcon))
+					$programStartIn = Get-SAMIniFileValue -Path $p -Section $programName -Key "StartIn" -AllowEmptyOrNull
+					Write-Output -InputObject $([ProgramSms]::New($programName,$CommandLine,$programComment,$programIcon,$programStartIn))
 				}				
 				Write-Output -InputObject $([PackageDefinitionSms]::New($Name,$Version,$Publisher,$Comment,$Language,$ProgramSmsArray,$Icon))
 			}

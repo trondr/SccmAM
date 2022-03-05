@@ -7,14 +7,17 @@ class ProgramSms
     [ValidateLength(1,127)]
     [string]$Comment
     [string]$Icon
+    [ValidateLength(1,127)]
+    [string]$StartIn
 
-    ProgramSms([string]$Name,[string]$CommandLine,[string]$Comment,[string]$Icon)
+    ProgramSms([string]$Name,[string]$CommandLine,[string]$Comment,[string]$Icon,[string]$StartIn)
     {
         try {
             $this.Name = $Name
             $this.CommandLine = $CommandLine
             $this.Comment = $Comment
             $this.Icon = $Icon
+            $this.StartIn = $StartIn
         }
         catch {
             Write-Error "Failed to construct ProgramSms object due to: $($_.Exception.Message) (Line: $($_.InvocationInfo.ScriptLineNumber))(Script: $($_.InvocationInfo.ScriptName))" -ErrorAction Stop

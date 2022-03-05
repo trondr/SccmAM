@@ -41,13 +41,14 @@
 				$Comment = Get-SAMIniFileValue -Path $p -Section "Package Definition" -Key "Comment"
 				$Language = Get-SAMIniFileValue -Path $p -Section "Package Definition" -Key "Language" -AllowEmptyOrNull
 				$Programs = $(Get-SAMIniFileValue -Path $p -Section "Package Definition" -Key "Programs")  -Split ","
+				$Icon = Get-SAMIniFileValue -Path $p -Section "Package Definition" -Key "Icon" -AllowEmptyOrNull
 				$ProgramSmsArray = $Programs | ForEach-Object{
 					$programName = Get-SAMIniFileValue -Path $p -Section $_ -Key "Name";
 					$commandLine = Get-SAMIniFileValue -Path $p -Section $programName -Key "CommandLine";
 					$programComment = Get-SAMIniFileValue -Path $p -Section $programName -Key "Comment"
 					Write-Output -InputObject $([ProgramSms]::New($programName,$CommandLine,$programComment))
 				}				
-				Write-Output -InputObject $([PackageDefinitionSms]::New($Name,$Version,$Publisher,$Comment,$Language,$ProgramSmsArray))
+				Write-Output -InputObject $([PackageDefinitionSms]::New($Name,$Version,$Publisher,$Comment,$Language,$ProgramSmsArray,$Icon))
 			}
 			catch {
 				Write-Host "Import-SAMPackageDefinitionSms failed processing '$($p)' due to: $($_.Exception.Message) (Line: $($_.InvocationInfo.ScriptLineNumber))(Script: $($_.InvocationInfo.ScriptName))" -ForegroundColor Red

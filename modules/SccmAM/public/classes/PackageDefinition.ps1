@@ -25,8 +25,9 @@ class PackageDefinitionSms
     [ValidateLength(1,32)]
     [string]$Language
     [ProgramSms[]]$Programs
+    [string]$Icon
 
-    PackageDefinitionSms([string]$Name,[string]$Version,[string]$Publisher,[string]$Comment,[string]$Language,[ProgramSms[]]$Programs)
+    PackageDefinitionSms([string]$Name,[string]$Version,[string]$Publisher,[string]$Comment,[string]$Language,[ProgramSms[]]$Programs,[string]$Icon)
     {
         try {
             $this.Name = $Name
@@ -34,12 +35,12 @@ class PackageDefinitionSms
             $this.Publisher = $Publisher
             $this.Comment = $Comment
             $this.Language = $Language
-            $this.Programs = $Programs    
+            $this.Programs = $Programs
+            $this.Icon = $Icon
         }
         catch {
             Write-Error "Failed to construct PackageDefinitionSms object due to: $($_.Exception.Message) (Line: $($_.InvocationInfo.ScriptLineNumber))(Script: $($_.InvocationInfo.ScriptName))" -ErrorAction Stop
-        }
-        
+        }        
     }
 }
 #TEST
